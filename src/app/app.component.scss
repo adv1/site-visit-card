@@ -29,3 +29,30 @@ nav a:hover {
 nav a.active {
   color: #039be5;
 }
+
+.head h1 {
+  color: white;
+}
+.head {
+  height: 180px;
+  background-color: #039be5;
+}
+.navi {
+  height: 50px;
+  background-color: lightgray;
+  text-align: right;
+}
+.navi a {
+  margin-right: 10px;
+}
+
+.foot {
+  margin-top: 150px;
+  height: 50px;
+  background-color: lightgray;
+  color: whitesmoke;
+}
+.foot p {
+  text-align: center;
+}
+

@@ -8,19 +8,25 @@
   background-color: white;
 }
 
-.sign-in input {
-  flex: 1;
-  margin: 5px;
-}
-
-.sign-in input:focus {
-  border: 1px solid #1976D2;
-}
-
-.sign-in input:focus.ng-invalid.ng-dirty {
-  border: 1px solid #dd0031;
-}
-
 .sign-in button {
   margin-left: 16px;
+}
+
+nav a {
+  padding: 5px 10px;
+  text-decoration: none;
+  margin-top: 10px;
+  display: inline-block;
+  background-color: #eee;
+  border-radius: 4px;
+}
+nav a:visited, a:link {
+  color: #607D8B;
+}
+nav a:hover {
+  color: #039be5;
+  background-color: #CFD8DC;
+}
+nav a.active {
+  color: #039be5;
 }

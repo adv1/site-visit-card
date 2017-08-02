@@ -8,19 +8,6 @@
   background-color: white;
 }
 
-.sign-up input {
-  flex: 1;
-  margin: 5px;
-}
-
-.sign-up input:focus {
-  border: 1px solid #1976D2;
-}
-
-.sign-up input:focus.ng-invalid.ng-dirty {
-  border: 1px solid #dd0031;
-}
-
-.sign-in button {
+.sign-up button {
   margin-left: 16px;
 }

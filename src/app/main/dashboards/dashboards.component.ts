@@ -1,9 +1,10 @@
+'use strict';
+
 import { Component } from '@angular/core';
 
 @Component({
-  moduleId: module.id,
   selector: 'dashboards',
-  templateUrl: 'dashboards.component.html',
-  styleUrls: ['dashboards.component.scss']
+  templateUrl: './dashboards.component.html',
+  styleUrls: ['./dashboards.component.scss']
 })
-export class DashboardsComponent { }
+export class DashboardsComponent {}

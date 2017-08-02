@@ -1,13 +1,10 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+'use strict';
+
+import { Route } from '@angular/router';
 import { CurrentDashboardsComponent } from './current-dashboards.component';
 
-const appRoutes: Routes = [
-  { path: 'current-dashboard', component: CurrentDashboardsComponent },
-]
 
-@NgModule({
-  imports: [ RouterModule.forRoot(appRoutes) ],
-  exports: [ RouterModule ]
-})
-export class CurrentDashboardsRoute { }
+export const currentDashboardRoute: Route = {
+  path: 'current-dashboard', component: CurrentDashboardsComponent
+};
+

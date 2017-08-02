@@ -1,20 +1,23 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+'use strict';
+
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { UserCredentials } from '../auth.model';
 
 @Component({
-  moduleId: module.id,
   selector: 'sign-up',
-  templateUrl: 'sign-up.component.html',
-  styleUrls: ['sign-up.component.scss']
+  templateUrl: './sign-up.component.html',
+  styleUrls: ['./sign-up.component.scss']
 })
-export class SignUpComponent {
-  login: string = '';
-  password: string = '';
-  email: string = '';
-  @Output() create: EventEmitter<string> = new EventEmitter();
 
-  onSubmit() {
-    this.create.emit(this.login);
-    this.create.emit(this.password);
-    this.create.emit(this.email);
+export class SignUpComponent implements OnInit {
+
+  public signUpData: UserCredentials =  { email: '', password: ''};
+
+  public constructor(
+    private _route: ActivatedRoute) { }
+
+  public ngOnInit(): string {
+    return this.signUpData.email = this._route.snapshot.parent.queryParamMap.get('email');
   }
-}
+};
