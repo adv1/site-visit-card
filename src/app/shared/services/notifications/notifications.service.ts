@@ -2,7 +2,6 @@
 
 import { EventEmitter, Injectable, OnInit, Output } from '@angular/core';
 import { Notification, Notifications } from './notifications.model';
-import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class NotifyService {
