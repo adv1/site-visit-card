@@ -1,6 +1,6 @@
 'use strict';
 
-import { Component, Input, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import { NotifyService } from './notifications.service';
 
 @Component({
@@ -8,9 +8,10 @@ import { NotifyService } from './notifications.service';
   templateUrl: './notifications.component.html',
   styleUrls: [ './notifications.component.scss' ]
 })
-export class NgNotifyComponent implements OnInit {
+export class NotifyComponent implements OnInit {
 
-  @Input() public notificationEmitter: string;
+  @Input() public for: string;
+
   public notifications = [];
 
   public constructor(
@@ -18,7 +19,7 @@ export class NgNotifyComponent implements OnInit {
   ) {}
 
   public ngOnInit() {
-    this.notifications = this._notifyService.getNotifications('loginPage');
+    this.notifications = this._notifyService.getNotifications(this.for);
   }
 
 
@@ -27,7 +28,6 @@ export class NgNotifyComponent implements OnInit {
   }
 
   public ngOnDestroy() {
-    this._notifyService
   }
 }
 

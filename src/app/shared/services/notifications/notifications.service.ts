@@ -1,6 +1,6 @@
 'use strict';
 
-import { EventEmitter, Injectable, OnInit, Output } from '@angular/core';
+import { EventEmitter, Injectable, Output } from '@angular/core';
 import { Notification, Notifications } from './notifications.model';
 
 @Injectable()
@@ -8,15 +8,20 @@ export class NotifyService {
    @Output() private _notificationEmitter: EventEmitter<string> = new EventEmitter();
 
   private _notifyes: Notifications = {
-      loginPage: [
-        { type: 'success', message: 'Success' },
-        { type: 'warning', message: 'Warning' },
-        { type: 'fail', message: 'Fail' },
-        ]
+      signIn: [
+        { type: 'success', message: 'Success signIn' },
+        { type: 'warning', message: 'Warning signIn' },
+        { type: 'fail', message: 'Fail signIn' },
+      ],
+      signUp: [
+        { type: 'success', message: 'Success signUp' },
+        { type: 'warning', message: 'Warning signUp' },
+        { type: 'fail', message: 'Fail signUp' },
+      ]
   };
 
   public subscribe(): void {
-    this._notificationEmitter.subscribe()
+    return this._notificationEmitter.subscribe();
   }
 
   public getNotifications(id: string): Array<Notification> {
@@ -26,7 +31,6 @@ export class NotifyService {
   public success(id: string, message: string): void {
     this._notifyes[id].push({type: id, message: message});
     this._notificationEmitter.emit('notifications updated');
-    this.subscribe();
   }
 
   public warning(id: string, message: string): void {
