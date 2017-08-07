@@ -20,8 +20,12 @@ export class NotifyService {
       ]
   };
 
-  public subscribe(): void {
-    return this._notificationEmitter.subscribe();
+  // public subscribe(callback) {
+  //   this._notificationEmitter.subscribe(callback);
+  // }
+
+  public unSubscribe() {
+    this._notificationEmitter.unsubscribe();
   }
 
   public getNotifications(id: string): Array<Notification> {

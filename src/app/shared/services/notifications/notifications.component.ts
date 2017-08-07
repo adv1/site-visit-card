@@ -20,6 +20,11 @@ export class NotifyComponent implements OnInit {
 
   public ngOnInit() {
     this.notifications = this._notifyService.getNotifications(this.for);
+    // this._notifyService.subscribe(() => this.notifications = this._notifyService.getNotifications(this.for));
+  }
+
+  public addNotify() {
+    this._notifyService.success(this.for, 'test message');
   }
 
 
@@ -28,6 +33,7 @@ export class NotifyComponent implements OnInit {
   }
 
   public ngOnDestroy() {
+    this._notifyService.unSubscribe();
   }
 }
 
