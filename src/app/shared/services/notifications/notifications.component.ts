@@ -1,6 +1,6 @@
 'use strict';
 
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import { NotifyService } from './notifications.service';
 
 @Component({
@@ -18,12 +18,12 @@ export class NotifyComponent implements OnInit {
     private _notifyService: NotifyService
   ) {}
 
-  public ngOnInit() {
+  public ngOnInit(): void {
     this.notifications = this._notifyService.getNotifications(this.for);
-    // this._notifyService.subscribe(() => this.notifications = this._notifyService.getNotifications(this.for));
+    this._notifyService.subscribe(() => this.notifications = this._notifyService.getNotifications(this.for));
   }
 
-  public addNotify() {
+  public addNotify(): void {
     this._notifyService.success(this.for, 'test message');
   }
 
@@ -32,9 +32,9 @@ export class NotifyComponent implements OnInit {
     this._notifyService.clear(id);
   }
 
-  public ngOnDestroy() {
-    this._notifyService.unSubscribe();
-  }
+  // public ngOnDestroy() {
+  //   this._notifyService.unSubscribe();
+  // }
 }
 
 

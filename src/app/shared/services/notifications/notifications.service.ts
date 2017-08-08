@@ -20,9 +20,9 @@ export class NotifyService {
       ]
   };
 
-  // public subscribe(callback) {
-  //   this._notificationEmitter.subscribe(callback);
-  // }
+  public subscribe(callback) {
+    this._notificationEmitter.subscribe(callback);
+  }
 
   public unSubscribe() {
     this._notificationEmitter.unsubscribe();
@@ -34,7 +34,7 @@ export class NotifyService {
 
   public success(id: string, message: string): void {
     this._notifyes[id].push({type: id, message: message});
-    this._notificationEmitter.emit('notifications updated');
+    this._notificationEmitter.emit('notifications updated')
   }
 
   public warning(id: string, message: string): void {
