@@ -21,11 +21,7 @@ export class NotifyService {
   };
 
   public subscribe(callback) {
-    this._notificationEmitter.subscribe(callback);
-  }
-
-  public unSubscribe() {
-    this._notificationEmitter.unsubscribe();
+    return this._notificationEmitter.subscribe(callback);
   }
 
   public getNotifications(id: string): Array<Notification> {
@@ -48,7 +44,7 @@ export class NotifyService {
   }
 
   public clear(id: string): void {
-    this._notifyes[id] = null;
+    delete this._notifyes[id];
     this._notificationEmitter.emit('notifications updated');
   }
 }

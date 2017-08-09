@@ -8,11 +8,12 @@ import { NotifyService } from './notifications.service';
   templateUrl: './notifications.component.html',
   styleUrls: [ './notifications.component.scss' ]
 })
-export class NotifyComponent implements OnInit {
+export class NotifyComponent implements OnInit, OnDestroy {
 
   @Input() public for: string;
 
   public notifications = [];
+  public subscriber;
 
   public constructor(
     private _notifyService: NotifyService
@@ -20,21 +21,16 @@ export class NotifyComponent implements OnInit {
 
   public ngOnInit(): void {
     this.notifications = this._notifyService.getNotifications(this.for);
-    this._notifyService.subscribe(() => this.notifications = this._notifyService.getNotifications(this.for));
+    this.subscriber = this._notifyService.subscribe(() => this.notifications = this._notifyService.getNotifications(this.for));
   }
 
-  public addNotify(): void {
-    this._notifyService.success(this.for, 'test message');
+  public close(): void {
+    this._notifyService.clear(this.for);
   }
 
-
-  public close(id: string): void {
-    this._notifyService.clear(id);
+  public ngOnDestroy() {
+    this.subscriber.unsubscribe();
   }
-
-  // public ngOnDestroy() {
-  //   this._notifyService.unSubscribe();
-  // }
 }
 
 

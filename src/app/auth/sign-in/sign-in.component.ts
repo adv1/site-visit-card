@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserDataService } from '../../shared/services/user-data/user-data.service';
 import { UserCredentials } from '../auth.model';
+import { NotifyService } from '../../shared/services/notifications/notifications.service';
 
 
 @Component({
@@ -18,6 +19,7 @@ export class SignInComponent implements OnInit {
 
   public constructor(
     private _service: UserDataService,
+    private _notifyService: NotifyService,
     private _router: Router
   ) {}
 
@@ -36,6 +38,10 @@ export class SignInComponent implements OnInit {
 
   public signUp(): Promise<boolean> {
     return this._router.navigate(['/sign-up'], { queryParams: { email: this.signInData.email } });
+  }
+
+  public addNotify(): void {
+    this._notifyService.success('signIn', 'test message');
   }
 };
 
